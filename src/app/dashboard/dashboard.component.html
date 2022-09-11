@@ -1,0 +1,88 @@
+<div style="overflow-x: hidden;overflow-y: hidden;">
+  <div class="col-sm-12 " style="padding-top:80px;margin-left: 77px;">
+    <div style="margin-top:28px"></div>
+    <div class="inner_pop_up box">
+      <form [formGroup]="propertyForm" (ngSubmit)="addProperty(propertyForm.value)">
+        <div class="col-md-12">
+          <div class="row">
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+              <div class="form-group">
+                <label class="lblstyle" for="property_name">Property Name :</label>
+                <input type="text" formControlName="property_name" id="property_name" class="form-control formbox"
+                  placeholder="Enter property Name" required
+                  [ngClass]="{ 'is-invalid': f.property_name.touched && f.property_name.errors, 'is-valid': f.property_name.valid }">
+                <div *ngIf="f.property_name.touched && f.property_name.errors" class="invalid-feedback">
+                  <div *ngIf="f.property_name.errors.required">Property Name is required!</div>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+              <div class="form-group">
+                <label class="lblstyle" for="property_description">Property Description:</label>
+                <input type="tel"
+                  [ngClass]="{ 'is-invalid': f.property_description.touched && f.property_description.errors, 'is-valid': f.property_description.valid }"
+                  formControlName="property_description" id="property_description" class="form-control formbox"
+                  placeholder="Enter property description" required>
+                <div *ngIf="f.property_description.touched && f.property_description.errors" class="invalid-feedback">
+                  <div *ngIf="f.property_description.errors.required">Description is required!</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+              <div class="form-group">
+                <label class="lblstyle" for="property_size">Property Size:</label>
+                <input type="tel"
+                  [ngClass]="{ 'is-invalid': f.property_size.touched && f.property_size.errors, 'is-valid': f.property_size.valid }"
+                  formControlName="property_size" id="property_size" class="form-control formbox"
+                  placeholder="Enter property Size" required>
+                <div *ngIf="f.property_size.touched && f.property_size.errors" class="invalid-feedback">
+                  <div *ngIf="f.property_size.errors.required">Property size is required!</div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+              <div class="form-group" style="margin-top: 31px;">
+                <button type="submit" class="btn btncolor"> Add Property
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="col-sm-4"></div>
+  <div class="margin-top"></div>
+
+  <!-------------------listing of property------------->
+  <div class="col-sm-12 " style="padding-top:80px;text-align: center;" *ngIf="propertyList.length > 0">
+    <h4>Property List</h4>
+  </div>
+  <div *ngIf="propertyList.length > 0">
+    <div class="col-sm-12 " style="padding-top:20px;margin-left: 60px;">
+      <div class="inner_pop_up box">
+
+        <table>
+          <tr>
+            <th>Property Name</th>
+            <th>Property Description</th>
+            <th>Action</th>
+
+          </tr>
+          <tr *ngFor="let data of  propertyList; let i = index">
+            <td>{{data.property_name}}</td>
+            <td>{{data.property_description}}</td>
+            <td>
+              <button type="submit" (click)="deleteProperty(i)" class="btn btncolor"> Delete
+              </button>
+            </td>
+          </tr>
+
+        </table>
+      </div>
+    </div>
+  </div>

@@ -1,0 +1,161 @@
+.container {
+  border: 1px solid #ffffff;
+  background: #8080800d;
+  margin-top: 47px;
+}
+
+.margin-top {
+  margin-top: 8px
+}
+
+.formbox {
+  border-radius: 8px;
+  height: 50px;
+  /* width: 222px; */
+  font-size: large;
+}
+
+
+.input-box {
+  /* padding-left: 35px;
+  padding-right: 8px; */
+  border-radius: 35px;
+  width: 220px;
+  float: right;
+  margin-right: 31px;
+  height: 34px;
+  border: 1px solid #ccc;
+  font-size: 13px;
+  outline: 1px;
+  margin-left: 80%;
+  margin-top: 13px;
+  /* padding: 8px; */
+}
+
+.box {
+  /* border-bottom: 1px solid #dee2e6; */
+  font-weight: bold;
+  font-family: Raleway;
+  color: black;
+  /* padding: 15px 30px; */
+  /* margin-top: 80px; */
+  /* border: 0.6000000238px solid #9EA0A5; */
+  border-radius: 8px;
+  font-size: 14px;
+  /* margin-left: 17px;
+  width: 97.7%; */
+  padding-top: 15px;
+  margin-right: 92px;
+}
+
+.btncolor {
+  background-color: rgb(237 27 36);
+  text-decoration-color: rgb(243 106 112);
+  color: rgb(253 228 229);
+  width: 150px;
+  height: 50px;
+  border-radius: 8%;
+}
+
+.lblstyle {
+  font-family: Raleway;
+  color: #373a3ede;
+  opacity: 1;
+  /* font-weight: bold; */
+  font-size: 18px;
+}
+
+/* mat-row,
+mat-footer-row {
+  min-height: 33px;
+} */
+
+.example-container {
+  display: flex;
+  flex-direction: column;
+  max-height: 500px;
+  min-width: 300px;
+}
+
+.mat-table {
+  overflow: auto;
+  max-height: 215px;
+}
+
+.mobile-label {
+  display: none;
+}
+
+@media(max-width: 600px) {
+  .mobile-label {
+    width: 80px;
+    display: inline-block;
+    font-weight: bold;
+  }
+
+  .mat-header-row {
+    display: none;
+  }
+
+  .mat-row {
+    flex-direction: column;
+    align-items: start;
+    padding: 8px 24px;
+  }
+}
+
+@media screen and (max-width: 960px) {
+  .mat-table {
+    border: 0;
+    vertical-align: middle
+  }
+
+  .mat-table caption {
+    font-size: 1em;
+  }
+}
+
+
+.dialog1.help_pop_up .content {
+  width: 80%;
+  margin: 0 auto;
+  height: 480px;
+  padding: 20px;
+  overflow: auto;
+  margin-top: 60px;
+}
+
+.dialog1 .content.helpPop table thead th:first-child {
+  border-top-left-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.dialog1 .content.helpPop table thead th:last-child {
+  border-top-right-radius: 8px;
+}
+
+.count {
+  border: 1px solid #80808029;
+  border-radius: 9px;
+  background: #80808029;
+  padding: 13px;
+  margin-left: 36px;
+  margin-top: 6px;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th,
+td {
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #f2f2f2
+}
