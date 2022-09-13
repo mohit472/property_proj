@@ -59,10 +59,10 @@
   <div class="margin-top"></div>
 
   <!-------------------listing of property------------->
-  <div class="col-sm-12 " style="padding-top:80px;text-align: center;" *ngIf="propertyList.length > 0">
+  <div class="col-sm-12 " style="padding-top:80px;text-align: center;" *ngIf="propertyList && propertyList.length > 0">
     <h4>Property List</h4>
   </div>
-  <div *ngIf="propertyList.length > 0">
+  <div *ngIf="propertyList && propertyList.length > 0">
     <div class="col-sm-12 " style="padding-top:20px;margin-left: 60px;">
       <div class="inner_pop_up box">
 

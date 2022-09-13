@@ -1,6 +1,7 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { environment } from '../../environments/environment';
+import { ApiService } from '../services/property.service';
 
 
 @Component({
@@ -12,11 +13,12 @@ export class DashboardComponent implements OnInit {
   propertyForm: any = FormGroup;
   propertyList: any = [];
 
-  constructor(private fb: FormBuilder) {
+  constructor(private fb: FormBuilder, private apiService: ApiService) {
   }
 
   ngOnInit() {
     this.createPropertyForm();
+    this.getAllProperty()
   }
 
   // create property form
@@ -32,24 +34,38 @@ export class DashboardComponent implements OnInit {
 
   // add property function
   addProperty(data: any) {
-    if (data.property_description == '' || data.property_name == '' || data.property_size == '') {
+
+    if (data.property_description == '' || data.property_name == '' || data.property_size == '' || data.property_description == null || data.property_name == null || data.property_size == null) {
       alert("Please fill all the details");
       return
     }
-    this.propertyList.push({
+
+    let obj = {
       property_description: data.property_description,
       property_name: data.property_name,
       property_size: data.property_size
+    }
+
+    this.apiService.addNewProperty(obj).subscribe((data: any) => {
+      this.propertyForm.reset()
+      this.propertyForm.markAsPristine();
+      this.propertyForm.markAsUntouched();
+      this.propertyForm.updateValueAndValidity();
+      this.getAllProperty()
     });
 
-    this.propertyForm.markAsPristine();
-    this.propertyForm.markAsUntouched();
-    this.propertyForm.updateValueAndValidity();
   }
 
   // delete property function
   deleteProperty(index: any) {
     this.propertyList.splice(index, 1)
+  }
+
+  getAllProperty() {
+    this.propertyList = []
+    this.apiService.getPropertyList().subscribe((data: any) => {
+      this.propertyList = data;
+    });
   }
 
 }
